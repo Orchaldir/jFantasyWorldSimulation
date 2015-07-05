@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 public class TaskTest
 {
-	private String name_;
+	private String name_ = "Task0";
 	private Task task_ = new Task(name_);
 
 	@Test
