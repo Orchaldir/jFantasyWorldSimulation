@@ -13,23 +13,26 @@ public class Technique
 		time_per_unit_ = time_per_unit;
 	}
 	
-	String getName()
+	public String getName()
 	{
 		return name_;
 	}
 	
-	Task getTask()
+	public Task getTask()
 	{
 		return task_;
 	}
 	
-	double getTimePerUnit()
+	public double getTimePerUnit()
 	{
 		return time_per_unit_;
 	}
 	
-	double getTime(double units)
+	public double getTime(double units)
 	{
+		if(units <= 0.0)
+			throw new IllegalArgumentException("Units must be greater than 0!");
+		
 		return time_per_unit_ * units;
 	}
 }

@@ -35,4 +35,10 @@ public class TechniqueTest
 		double time = units * time_per_unit_;
 		assertEquals(time, technique_.getTime(units), 0.001);
 	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testGetTimeWithNegativeUnits()
+	{
+		technique_.getTime(-1.0);
+	}
 }
