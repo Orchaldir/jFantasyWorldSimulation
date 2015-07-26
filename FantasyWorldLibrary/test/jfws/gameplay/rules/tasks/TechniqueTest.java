@@ -1,5 +1,7 @@
-package jfws.gameplay.economy;
+package jfws.gameplay.rules.tasks;
 
+import jfws.gameplay.rules.tasks.Technique;
+import jfws.gameplay.rules.tasks.Task;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

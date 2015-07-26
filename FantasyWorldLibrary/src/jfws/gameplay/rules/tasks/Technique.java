@@ -1,4 +1,4 @@
-package jfws.gameplay.economy;
+package jfws.gameplay.rules.tasks;
 
 public class Technique
 {
