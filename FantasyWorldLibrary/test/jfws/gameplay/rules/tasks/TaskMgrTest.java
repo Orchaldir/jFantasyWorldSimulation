@@ -55,6 +55,12 @@ public class TaskMgrTest
 		assertEquals(task, task_mgr_.getTask(name_));
 	}
 	
+	@Test
+	public void testGetTaskWithWrongName()
+	{
+		assertNull(task_mgr_.getTask("Wrong Name"));
+	}
+	
 	@Test(expected=IllegalArgumentException.class)
 	public void testGetTaskWithNull()
 	{

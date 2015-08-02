@@ -6,7 +6,7 @@ import org.junit.Before;
 
 public class ResourceTest
 {
-	private String name_ = "Task0";
+	private String name_ = "Resource0";
 	private double space_per_unit_ = 2.0;
 	private Resource resource_;
 	

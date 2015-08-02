@@ -7,8 +7,6 @@ public class TaskMgr
 {
 	private Map<String,Task> tasks_ = new HashMap<>();
 	
-	// Task
-	
 	public Task createTask(String name)
 	{
 		if(name == null)

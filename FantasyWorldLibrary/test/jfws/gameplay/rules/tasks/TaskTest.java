@@ -69,6 +69,12 @@ public class TaskTest
 		assertEquals(technique0, task_.getTechnique(technique0_name_));
 	}
 	
+	@Test
+	public void testGetTechniqueWithWrongName()
+	{
+		assertNull(task_.getTechnique("Wrong Name"));
+	}
+	
 	@Test(expected=IllegalArgumentException.class)
 	public void testGetTechniqueWithNull()
 	{
