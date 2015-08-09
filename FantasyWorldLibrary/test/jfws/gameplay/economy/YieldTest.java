@@ -37,4 +37,10 @@ public class YieldTest
 		
 		assertEquals(amount, yield_.getAmount(units_), 0.001);
 	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testGetAmountWithNegativeUnits()
+	{
+		yield_.getAmount(-1.0);
+	}
 }

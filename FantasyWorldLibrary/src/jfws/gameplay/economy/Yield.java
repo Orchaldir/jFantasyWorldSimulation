@@ -25,6 +25,9 @@ public class Yield
 	
 	public double getAmount(double units)
 	{
+		if(units <= 0.0)
+			throw new IllegalArgumentException("Units must be greater than 0!");
+		
 		return amount_per_unit_ * units;
 	}
 }
