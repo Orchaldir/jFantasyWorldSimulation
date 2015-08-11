@@ -9,6 +9,7 @@ public class Crop
 {
 	private String name_;
 	private ArrayList<Yield> yield_list_ = new ArrayList<>();
+	private ArrayList<SeasonalCropData> seasons_ = new ArrayList<>();
 	
 	public Crop(String name)
 	{
@@ -19,6 +20,8 @@ public class Crop
 	{
 		return  name_;
 	}
+	
+	// yield
 	
 	public Yield addYield(Resource resource, double amount_per_unit)
 	{
@@ -37,5 +40,20 @@ public class Crop
 	public List<Yield> getYieldList()
 	{
 		return yield_list_;
+	}
+	
+	// seasons
+	
+	public SeasonalCropData addSeason()
+	{
+		SeasonalCropData season = new SeasonalCropData(this);
+		
+		seasons_.add(season);
+		
+		return season;
+	}
+	public List<SeasonalCropData> getSeasons()
+	{
+		return seasons_;
 	}
 }

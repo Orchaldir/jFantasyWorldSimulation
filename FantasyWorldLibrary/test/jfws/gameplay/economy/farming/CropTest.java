@@ -60,4 +60,41 @@ public class CropTest
 		assertEquals(1, list.size());
 		assertEquals(yield, list.get(0));
 	}
+
+	@Test
+	public void testAddSeason()
+	{
+		SeasonalCropData crop_data = crop_.addSeason();
+		
+		assertNotNull(crop_data);
+		assertEquals(crop_, crop_data.getCrop());
+	}
+
+	@Test
+	public void testGetSeasons()
+	{
+		SeasonalCropData crop_data0 = crop_.addSeason();
+		List<SeasonalCropData> seasons = crop_.getSeasons();
+		
+		assertNotNull(seasons);
+		assertEquals(1, seasons.size());
+		assertEquals(crop_data0, seasons.get(0));
+		
+		SeasonalCropData crop_data1 = crop_.addSeason();
+		seasons = crop_.getSeasons();
+		
+		assertNotNull(seasons);
+		assertEquals(2, seasons.size());
+		assertEquals(crop_data0, seasons.get(0));
+		assertEquals(crop_data1, seasons.get(1));
+	}
+	
+	@Test
+	public void testGetNoSeasons()
+	{
+		List<SeasonalCropData> seasons = crop_.getSeasons();
+		
+		assertNotNull(seasons);
+		assertEquals(0, seasons.size());
+	}
 }
