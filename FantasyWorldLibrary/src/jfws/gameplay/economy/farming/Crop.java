@@ -2,13 +2,16 @@ package jfws.gameplay.economy.farming;
 
 import java.util.ArrayList;
 import java.util.List;
-import jfws.gameplay.economy.Yield;
+import jfws.gameplay.economy.resources.ResourceTransfer;
 import jfws.gameplay.economy.resources.Resource;
 
 public class Crop
 {
 	private String name_;
-	private ArrayList<Yield> yield_list_ = new ArrayList<>();
+	
+	private ResourceTransfer seed_;
+	private ArrayList<ResourceTransfer> yield_ = new ArrayList<>();
+	
 	private ArrayList<SeasonalCropData> seasons_ = new ArrayList<>();
 	
 	public Crop(String name)
@@ -21,25 +24,44 @@ public class Crop
 		return  name_;
 	}
 	
+	// seed
+	
+	public ResourceTransfer setSeed(Resource resource, double amount_per_unit)
+	{
+		if(resource == null)
+			throw new IllegalArgumentException("Resource is null!");
+		else if(amount_per_unit >= 0.0)
+			throw new IllegalArgumentException("Amount per Unit must be smaller than 0!");
+		
+		seed_ = new ResourceTransfer(resource, amount_per_unit);
+		
+		return seed_;
+	}
+	
+	public ResourceTransfer getSeed()
+	{
+		return seed_;
+	}
+	
 	// yield
 	
-	public Yield addYield(Resource resource, double amount_per_unit)
+	public ResourceTransfer addYield(Resource resource, double amount_per_unit)
 	{
 		if(resource == null)
 			throw new IllegalArgumentException("Resource is null!");
 		else if(amount_per_unit <= 0.0)
 			throw new IllegalArgumentException("Amount per Unit must be greater than 0!");
 		
-		Yield yield = new Yield(resource, amount_per_unit);
+		ResourceTransfer yield = new ResourceTransfer(resource, amount_per_unit);
 		
-		yield_list_.add(yield);
+		yield_.add(yield);
 		
 		return yield;
 	}
 	
-	public List<Yield> getYieldList()
+	public List<ResourceTransfer> getYieldList()
 	{
-		return yield_list_;
+		return yield_;
 	}
 	
 	// seasons

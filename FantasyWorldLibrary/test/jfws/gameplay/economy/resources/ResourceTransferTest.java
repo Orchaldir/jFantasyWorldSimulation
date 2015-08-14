@@ -1,21 +1,20 @@
-package jfws.gameplay.economy;
+package jfws.gameplay.economy.resources;
 
-import jfws.gameplay.economy.resources.Resource;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
 
-public class YieldTest
+public class ResourceTransferTest
 {
 	private Resource resource_ = new Resource("Resource0", 2.0);
 	private double amount_per_unit_ = 10.0;
 	private double units_ = 30.0;
-	private Yield yield_;
+	private ResourceTransfer yield_;
 	
 	@Before
 	public void setUp()
 	{
-		yield_ = new Yield(resource_, amount_per_unit_);
+		yield_ = new ResourceTransfer(resource_, amount_per_unit_);
 	}
 
 	@Test

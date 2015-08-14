@@ -1,13 +1,11 @@
-package jfws.gameplay.economy;
+package jfws.gameplay.economy.resources;
 
-import jfws.gameplay.economy.resources.Resource;
-
-public class Yield
+public class ResourceTransfer
 {
 	private Resource resource_;
 	private double amount_per_unit_;
 	
-	public Yield(Resource resource, double amount_per_unit)
+	public ResourceTransfer(Resource resource, double amount_per_unit)
 	{
 		resource_ = resource;
 		amount_per_unit_ = amount_per_unit;
