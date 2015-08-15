@@ -78,4 +78,27 @@ public class Crop
 	{
 		return seasons_;
 	}
+	
+	public SeasonalCropData getNextSeason(SeasonalCropData current)
+	{
+		if(current == null)
+			throw new IllegalArgumentException("Current season is null!");
+			
+		for(int id = 0; id < seasons_.size(); id++)
+		{
+			if(seasons_.get(id) == current)
+			{
+				int next_id = id + 1;
+				
+				if(next_id < seasons_.size())
+				{
+					return seasons_.get(next_id);
+				}
+				
+				return null;
+			}
+		}
+		
+		throw new IllegalArgumentException("Current season is not part of the crop's seasons!");
+	}
 }

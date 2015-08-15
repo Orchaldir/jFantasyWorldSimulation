@@ -133,4 +133,29 @@ public class CropTest
 		assertNotNull(seasons);
 		assertEquals(0, seasons.size());
 	}
+	
+	@Test
+	public void testGetNextSeason()
+	{
+		SeasonalCropData crop_data0 = crop_.addSeason();
+		SeasonalCropData crop_data1 = crop_.addSeason();
+		SeasonalCropData crop_data2 = crop_.addSeason();
+		
+		
+		assertEquals(crop_data1, crop_.getNextSeason(crop_data0));
+		assertEquals(crop_data2, crop_.getNextSeason(crop_data1));
+		assertNull(crop_.getNextSeason(crop_data2));
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testGetNextSeasonWithNull()
+	{
+		crop_.getNextSeason(null);
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testGetNextSeasonWithInvalidSeason()
+	{
+		crop_.getNextSeason(new SeasonalCropData(crop_));
+	}
 }
